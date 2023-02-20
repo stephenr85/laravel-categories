@@ -117,7 +117,7 @@ class Category extends Model
     {
         $this->setTable(config('rinvex.categories.tables.categories'));
         $this->mergeRules([
-            'name' => 'required|string|strip_tags|max:150',
+            'name' => 'sometimes|required|string|strip_tags|max:150',
             'description' => 'nullable|string|max:32768',
             'slug' => 'required|alpha_dash|max:150|unique:'.config('rinvex.categories.models.category').',slug',
             NestedSet::LFT => 'sometimes|required|integer',
